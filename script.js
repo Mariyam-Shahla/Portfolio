@@ -1,149 +1,108 @@
+document.addEventListener("DOMContentLoaded", () => {
 
-const roles = [
-  "Data Analyst",
-  "Power BI Enthusiast",
-  "SQL Analyst",
-  "Tableau Creator"
-];
+  /* ================= TYPING ANIMATION ================= */
+  const roles = [
+    "Data Analyst",
+    "Python Developer",
+    "Power BI Developer",
+    "SQL Enthusiast",
+    "Data Storyteller"
+  ];
 
-let roleIndex = 0;
-let charIndex = 0;
+  const typingElement = document.getElementById("typing");
 
-const typingElement =
-  document.getElementById("typing");
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
 
-/* ================= TYPING EFFECT ================= */
+  function typeEffect() {
 
-function typeEffect() {
+    const currentRole = roles[roleIndex];
 
-  if (charIndex < roles[roleIndex].length) {
-
-    typingElement.innerHTML +=
-      roles[roleIndex].charAt(charIndex);
-
-    charIndex++;
-
-    setTimeout(typeEffect, 100);
-
-  }
-
-  else {
-
-    setTimeout(eraseEffect, 1500);
-
-  }
-
-}
-
-function eraseEffect() {
-
-  if (charIndex > 0) {
-
-    typingElement.innerHTML =
-      roles[roleIndex].substring(
-        0,
-        charIndex - 1
-      );
-
-    charIndex--;
-
-    setTimeout(eraseEffect, 50);
-
-  }
-
-  else {
-
-    roleIndex++;
-
-    if (roleIndex >= roles.length) {
-
-      roleIndex = 0;
-
+    if (isDeleting) {
+      charIndex--;
+    } else {
+      charIndex++;
     }
 
-    setTimeout(typeEffect, 500);
+    typingElement.textContent = currentRole.substring(0, charIndex);
 
-  }
+    let speed = isDeleting ? 50 : 90;
 
-}
-
-/* ================= START TYPING ================= */
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    if (typingElement) {
-
-      typeEffect();
-
+    if (!isDeleting && charIndex === currentRole.length) {
+      speed = 1200;
+      isDeleting = true;
     }
 
-  }
-);
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
 
-/* ================= HEADER SHADOW ================= */
-
-window.addEventListener("scroll", () => {
-
-  const header =
-    document.querySelector("header");
-
-  if (window.scrollY > 50) {
-
-    header.style.boxShadow =
-      "0 5px 20px rgba(0,0,0,0.3)";
-
+    setTimeout(typeEffect, speed);
   }
 
-  else {
+  typeEffect();
 
-    header.style.boxShadow = "none";
 
-  }
+  /* ================= SMOOTH NAV SCROLL ================= */
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
 
-});
+      const target = document.querySelector(link.getAttribute("href"));
 
-/* ================= ACTIVE NAV ================= */
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
 
-const sections =
-  document.querySelectorAll("section");
 
-const navLinks =
-  document.querySelectorAll("nav a");
+  /* ================= SCROLL REVEAL (PREMIUM) ================= */
+  const sections = document.querySelectorAll("section");
 
-window.addEventListener("scroll", () => {
-
-  let current = "";
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
 
   sections.forEach(section => {
-
-    const sectionTop =
-      section.offsetTop - 150;
-
-    if (pageYOffset >= sectionTop) {
-
-      current =
-        section.getAttribute("id");
-
-    }
-
+    observer.observe(section);
   });
 
-  navLinks.forEach(link => {
 
-    link.classList.remove("active");
+  /* ================= ACTIVE NAV HIGHLIGHT ================= */
+  const navLinks = document.querySelectorAll("nav a");
 
-    if (
-      link.getAttribute("href")
-      .includes(current)
-    ) {
+  window.addEventListener("scroll", () => {
 
-      link.classList.add("active");
+    let current = "";
 
-    }
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+
+      if (pageYOffset >= sectionTop - 120) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
 
   });
 
 });
-
