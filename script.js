@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= TYPING ANIMATION ================= */
   const roles = [
     "Data Analyst",
-    "Python Developer",
     "Power BI Developer",
     "SQL Enthusiast",
     "Data Storyteller"
