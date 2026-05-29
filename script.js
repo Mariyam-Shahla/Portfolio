@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= TYPING ANIMATION ================= */
     const roles = [
-        "Data Analyst",
-        "Power BI Developer",
-        "SQL Enthusiast",
+        "Aspiring Data Analyst",
+        "Power BI & SQL Enthusiast",
         "Data Storyteller"
     ];
 
