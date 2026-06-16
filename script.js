@@ -1,134 +1,134 @@
 /**
- * ULTRA-PREMIUM INTERACTIVE PORTFOLIO ENGINE
- * Architecture Core: Intersection Observer Orchestration & 3D Proximity Projection Matrix
+ * FLUID KINETIC RE-ENGINEERED ARSENAL
+ * Core Engine: Linear Velocity Tracking Mapping & True Magnetic Distortion Fields
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Programmatically initialize structural fluid canvas filter overlay
+    const fluidChromaNode = document.createElement('div');
+    fluidChromaNode.classList.add('ambient-liquid-glow');
+    document.body.appendChild(fluidChromaNode);
+
     /* ==========================================================================
-       1. ADVANCED MONOCHROME METADATA TYPEWRITER
+       1. HIGH-VELOCITY LINEAR INTERPOLATION (LERP) MOUSE PATH TRACKER
        ========================================================================== */
-    const analyticsLexicon = [
+    let currentPosX = 0, currentPosY = 0;
+    let targetPosX = 0, targetPosY = 0;
+
+    window.addEventListener('mousemove', (mouseCoordinates) => {
+        // Adjust coordinate centers based on element offset mapping bounds (700px radius / 2)
+        targetPosX = mouseCoordinates.clientX - 350;
+        targetPosY = mouseCoordinates.clientY - 350;
+    });
+
+    function loopFluidMotionTick() {
+        // Linear Interpolation smooth step equation
+        currentPosX += (targetPosX - currentPosX) * 0.07;
+        currentPosY += (targetPosY - currentPosY) * 0.07;
+
+        fluidChromaNode.style.transform = `translate3d(${currentPosX}px, ${currentPosY}px, 0)`;
+        requestAnimationFrame(loopFluidMotionTick);
+    }
+    // Launch smooth tracking thread loop
+    loopFluidMotionTick();
+
+
+    /* ==========================================================================
+       2. RE-DESIGNED KINETIC DIGITAL TYPEWRITER SEQUENCE
+       ========================================================================== */
+    const analyticsPhrases = [
         "Data Analytics Specialist.",
         "SQL Analytics Architecture.",
-        "BI Executive Dashboard Developer.",
-        "B.Sc Mathematics Graduate."
+        "BI Executive Dashboard Developer."
     ];
-    
-    let lexiconIdx = 0;
-    let characterIdx = 0;
-    let stateDeleting = false;
-    const writeVelocity = 60;
-    const deleteVelocity = 35;
-    const holdDuration = 2500; 
-    const targetTerminalNode = document.getElementById('typing');
+    let activePhraseIdx = 0, internalCharIdx = 0, flagDeleting = false;
+    const mechanicalTypingNode = document.getElementById('typing');
 
-    function executeTypePipeline() {
-        const structuralString = analyticsLexicon[lexiconIdx];
+    function processTypingLoop() {
+        const structuralPhrase = analyticsPhrases[activePhraseIdx];
         
-        if (stateDeleting) {
-            targetTerminalNode.textContent = structuralString.substring(0, characterIdx - 1);
-            characterIdx--;
+        if (flagDeleting) {
+            mechanicalTypingNode.textContent = structuralPhrase.substring(0, internalCharIdx - 1);
+            internalCharIdx--;
         } else {
-            targetTerminalNode.textContent = structuralString.substring(0, characterIdx + 1);
-            characterIdx++;
+            mechanicalTypingNode.textContent = structuralPhrase.substring(0, internalCharIdx + 1);
+            internalCharIdx++;
         }
 
-        if (!stateDeleting && characterIdx === structuralString.length) {
-            setTimeout(() => stateDeleting = true, holdDuration);
-        } else if (stateDeleting && characterIdx === 0) {
-            stateDeleting = false;
-            lexiconIdx = (lexiconIdx + 1) % analyticsLexicon.length;
+        let calculationTimeout = flagDeleting ? 30 : 60;
+
+        if (!flagDeleting && internalCharIdx === structuralPhrase.length) {
+            calculationTimeout = 2400; // Visual retention point duration
+            flagDeleting = true;
+        } else if (flagDeleting && internalCharIdx === 0) {
+            flagDeleting = false;
+            activePhraseIdx = (activePhraseIdx + 1) % analyticsPhrases.length;
+            calculationTimeout = 500;
         }
 
-        const dynamicallyCalculatedSpeed = stateDeleting ? deleteVelocity : writeVelocity;
-        setTimeout(executeTypePipeline, dynamicallyCalculatedSpeed);
+        setTimeout(processTypingLoop, calculationTimeout);
     }
-
-    if (targetTerminalNode) {
-        setTimeout(executeTypePipeline, 800);
-    }
+    if (mechanicalTypingNode) setTimeout(processTypingLoop, 900);
 
 
     /* ==========================================================================
-       2. CINEMATIC KINETIC INTERSECTION OBSERVER
+       3. INTUITIVE INTERSECTION PARALLAX REVEAL MATRIX
        ========================================================================== */
-    const elementsToReveal = document.querySelectorAll('.kinetic-reveal');
+    const systemStaggerNodes = document.querySelectorAll('.kinetic-reveal');
     
-    const configurationMatrix = {
-        root: null,
-        threshold: 0.12, 
-        rootMargin: "0px 0px -40px 0px"
-    };
-
-    const sectionRevealObserver = new IntersectionObserver((observedEntries, internalObserver) => {
-        observedEntries.forEach(realTimeEntry => {
-            if (realTimeEntry.isIntersecting) {
-                // Instantly inject computational structural state
-                realTimeEntry.target.classList.add('revealed');
-                // Drop tracking anchor down to preserve system resources
-                internalObserver.unobserve(realTimeEntry.target);
+    const viewportObservationMatrix = new IntersectionObserver((activeEntries, internalObserver) => {
+        activeEntries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                internalObserver.unobserve(entry.target);
             }
         });
-    }, configurationMatrix);
+    }, { threshold: 0.08, rootMargin: "0px 0px -50px 0px" });
 
-    elementsToReveal.forEach(targetDomNode => {
-        sectionRevealObserver.observe(targetDomNode);
-    });
+    systemStaggerNodes.forEach(node => viewportObservationMatrix.observe(node));
 
 
     /* ==========================================================================
-       3. 3D PROXIMITY MAGNETISM & SPATIAL WARPING MATRICES
+       4. TRUE HYPER-MAGNETIC ELEMENT FLEX DISTORTION MAPPING
        ========================================================================== */
-    const projectShowcaseCards = document.querySelectorAll('.project-card-wrapper');
+    const interactiveActionNodes = document.querySelectorAll('.btn, .contact-card-link, .about-profile-card');
 
-    projectShowcaseCards.forEach(luxuryCard => {
-        luxuryCard.addEventListener('mousemove', (mouseEvent) => {
-            const cardGeometryBounds = luxuryCard.getBoundingClientRect();
+    interactiveActionNodes.forEach(elementNode => {
+        elementNode.addEventListener('mousemove', (eventCoordinates) => {
+            const geographicBounds = elementNode.getBoundingClientRect();
             
-            // Calculate relative spatial vector metrics
-            const spatialX = mouseEvent.clientX - cardGeometryBounds.left;
-            const spatialY = mouseEvent.clientY - cardGeometryBounds.top;
+            // Isolate center vector paths within explicit container geometry bounds
+            const isolatedX = eventCoordinates.clientX - geographicBounds.left - (geographicBounds.width / 2);
+            const isolatedY = eventCoordinates.clientY - geographicBounds.top - (geographicBounds.height / 2);
 
-            // Generate angle calculations centered around the origin coordinates
-            const coordinateXCenter = cardGeometryBounds.width / 2;
-            const coordinateYCenter = cardGeometryBounds.height / 2;
-            
-            // Force 3D warp calculations limited to comfortable rotation thresholds (max ~10deg)
-            const rotationDegreeY = ((spatialX - coordinateXCenter) / coordinateXCenter) * 10;
-            const rotationDegreeX = -((spatialY - coordinateYCenter) / coordinateYCenter) * 10;
-
-            // Project spatial tracking layout variables directly down to elements
-            luxuryCard.style.transform = `perspective(1000px) rotateX(${rotationDegreeX}deg) rotateY(${rotationDegreeY}deg) scale3d(1.02, 1.02, 1.02)`;
+            // Pull element fractionally toward cursor vector coordinates
+            elementNode.style.transform = `translate3d(${isolatedX * 0.38}px, ${isolatedY * 0.38}px, 0) scale(1.03)`;
+            elementNode.style.transition = 'none'; // Temporarily decouple transition frames to eliminate lag
         });
 
-        luxuryCard.addEventListener('mouseleave', () => {
-            // Restore smooth ground physics vector state on exit
-            luxuryCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-            luxuryCard.style.transition = `transform 0.8s cubic-bezier(0.25, 1, 0.3, 1), border-color 0.5s ease, box-shadow 0.5s ease`;
-        });
-        
-        luxuryCard.addEventListener('mouseenter', () => {
-            // Drop transitions while calculations loop to prevent execution friction
-            luxuryCard.style.transition = `border-color 0.5s ease, box-shadow 0.5s ease`;
+        elementNode.addEventListener('mouseleave', () => {
+            // Re-apply smooth physics vector interpolation rules upon departure
+            elementNode.style.transform = `translate3d(0, 0, 0) scale(1)`;
+            elementNode.style.transition = `all 0.7s cubic-bezier(0.25, 1, 0.2, 1)`;
         });
     });
 
 
     /* ==========================================================================
-       4. INTERACTIVE GLASS BLUR BLENDING SCROLL TRANSLATION
+       5. INTERACTIVE NAV CONTRAST SHIFT TRIGGER
        ========================================================================== */
-    const globalNavbarNode = document.querySelector('.navbar');
+    const structuralNavbarElement = document.querySelector('.navbar');
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            globalNavbarNode.style.background = "rgba(3, 1, 6, 0.75)";
-            globalNavbarNode.style.height = "70px";
-            globalNavbarNode.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.5)";
+        if (window.scrollY > 40) {
+            structuralNavbarElement.style.background = "rgba(2, 4, 8, 0.88)";
+            structuralNavbarElement.style.height = "75px";
+            structuralNavbarElement.style.borderBottom = "1px solid rgba(0, 245, 212, 0.07)";
         } else {
-            globalNavbarNode.style.background = "rgba(3, 1, 6, 0.4)";
-            globalNavbarNode.style.height = "80px";
-            globalNavbarNode.style.boxShadow = "none";
+            structuralNavbarElement.style.background = "transparent";
+            structuralNavbarElement.style.height = "95px";
+            structuralNavbarElement.style.borderBottom = "none";
         }
     }, { passive: true });
 });
