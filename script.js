@@ -1,128 +1,312 @@
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* ================= TYPING ANIMATION ================= */
-    const roles = [
-        "Aspiring Data Analyst",
-        "Power BI & SQL Enthusiast",
-        "Data Storyteller"
-    ];
+/* ==========================================
+   PREMIUM PORTFOLIO JAVASCRIPT
+   Mariyam Shahla Portfolio
+========================================== */
 
-    const typingElement = document.getElementById("typing");
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+/* ==========================================
+   TYPING ANIMATION
+========================================== */
 
-    function typeEffect() {
-        const currentRole = roles[roleIndex];
+const typingElement = document.getElementById("typing");
 
-        if (isDeleting) {
-            charIndex--;
-        } else {
-            charIndex++;
+const roles = [
+    "Data Analyst",
+    "Power BI Developer",
+    "SQL Enthusiast",
+    "Python Analyst",
+    "Dashboard Designer"
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    const currentRole = roles[roleIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentRole.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentRole.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1800);
+            return;
         }
 
-        // Output text snippet
-        typingElement.textContent = currentRole.substring(0, charIndex);
+    } else {
 
-        // Control typing and deleting velocities
-        let speed = isDeleting ? 50 : 90;
+        typingElement.textContent =
+            currentRole.substring(0, charIndex - 1);
 
-        // Pause at the end of a fully typed word
-        if (!isDeleting && charIndex === currentRole.length) {
-            speed = 1500; // Left it long enough for visitors to read clearly
-            isDeleting = true;
-        }
+        charIndex--;
 
-        // Move to the next string in sequence once erased
-        if (isDeleting && charIndex === 0) {
-            isDeleting = false;
+        if (charIndex === 0) {
+            deleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
-            speed = 300; // Small programmatic rest before writing the next title
         }
-
-        setTimeout(typeEffect, speed);
     }
 
-    // Initialize animation loops if target container is present
-    if (typingElement) {
-        typeEffect();
-    }
+    setTimeout(typeEffect, deleting ? 50 : 100);
+}
 
+typeEffect();
 
-    /* ================= SMOOTH SECTION NAVIGATION SCROLLING ================= */
-    document.querySelectorAll(".nav-links a, .hero-buttons a").forEach(link => {
-        link.addEventListener("click", (e) => {
-            const targetId = link.getAttribute("href");
-            
-            // Only capture internal document fragments
-            if (targetId.startsWith("#")) {
-                e.preventDefault();
-                
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    // Account for structural sticky navigation height offsets
-                    const navOffset = 80; 
-                    const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - navOffset;
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            }
-        });
+const revealElements =
+document.querySelectorAll(".scroll-reveal");
+
+const revealObserver =
+new IntersectionObserver(
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
     });
 
+},
+{
+    threshold:0.15
+});
 
-    /* ================= SCROLL REVEAL (INTERSECTION OBSERVER) ================= */
-    const revealSections = document.querySelectorAll(".scroll-reveal");
+revealElements.forEach(element=>{
+    revealObserver.observe(element);
+});
 
-    const revealOptions = {
-        threshold: 0.12, // Fires reveal animation immediately when card element crosses boundaries
-        rootMargin: "0px 0px -40px 0px"
-    };
+/* ==========================================
+   NAVBAR SCROLL EFFECT
+========================================== */
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-                // Stop observing once visible to maintain animation persistence on page layout
-                observer.unobserve(entry.target);
-            }
-        });
-    }, revealOptions);
+const navbar =
+document.querySelector(".navbar");
 
-    revealSections.forEach(section => {
-        revealObserver.observe(section);
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 50){
+
+        navbar.classList.add("scrolled");
+
+    }else{
+
+        navbar.classList.remove("scrolled");
+    }
+});
+
+/* ==========================================
+   PREMIUM MOUSE GLOW
+========================================== */
+
+const glow = document.createElement("div");
+glow.classList.add("glow");
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",(e)=>{
+
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+
+/* ==========================================
+   HERO PARALLAX EFFECT
+========================================== */
+
+const hero =
+document.querySelector(".hero-container");
+
+document.addEventListener("mousemove",(e)=>{
+
+    const x =
+    (window.innerWidth / 2 - e.clientX) / 60;
+
+    const y =
+    (window.innerHeight / 2 - e.clientY) / 60;
+
+    hero.style.transform =
+    `translate(${x}px, ${y}px)`;
+});
+
+/* ==========================================
+   PROJECT CARD TILT EFFECT
+========================================== */
+
+const cards =
+document.querySelectorAll(
+".project-card-wrapper"
+);
+
+cards.forEach(card=>{
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect =
+        card.getBoundingClientRect();
+
+        const x =
+        e.clientX - rect.left;
+
+        const y =
+        e.clientY - rect.top;
+
+        const centerX =
+        rect.width / 2;
+
+        const centerY =
+        rect.height / 2;
+
+        const rotateX =
+        (y - centerY) / 18;
+
+        const rotateY =
+        (centerX - x) / 18;
+
+        card.style.transform =
+        `
+        perspective(1000px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-10px)
+        `;
     });
 
+    card.addEventListener("mouseleave",()=>{
 
-    /* ================= ACTIVE NAVBAR NAVIGATION LINK HIGHLIGHTING ================= */
-    const monitoredSections = document.querySelectorAll("section[id]");
-    const targetNavAnchors = document.querySelectorAll(".nav-links a");
+        card.style.transform =
+        `
+        perspective(1000px)
+        rotateX(0deg)
+        rotateY(0deg)
+        translateY(0px)
+        `;
+    });
+});
 
-    function highlightActiveNavigation() {
-        let scrollYPosition = window.scrollY;
+/* ==========================================
+   SKILL CARD FLOAT EFFECT
+========================================== */
 
-        monitoredSections.forEach(currentSection => {
-            const sectionalHeight = currentSection.offsetHeight;
-            // Balance off navbar space limits cleanly 
-            const sectionalTopOffset = currentSection.offsetTop - 140; 
-            const sectionalId = currentSection.getAttribute("id");
+const skillCards =
+document.querySelectorAll(
+".skill-category-card"
+);
 
-            if (scrollYPosition > sectionalTopOffset && scrollYPosition <= sectionalTopOffset + sectionalHeight) {
-                targetNavAnchors.forEach(anchorLink => {
-                    if (anchorLink.getAttribute("href") === "#" + sectionalId) {
-                        anchorLink.style.color = "#38bdf8";
-                    } else {
-                        anchorLink.style.color = ""; // Falls back safely to style.css base values
-                    }
-                });
-            }
-        });
+skillCards.forEach((card,index)=>{
+
+    card.style.animation =
+    `floatSkill 5s ease-in-out ${index * .3}s infinite`;
+});
+
+/* ==========================================
+   ADD FLOAT ANIMATION VIA JS
+========================================== */
+
+const style =
+document.createElement("style");
+
+style.innerHTML = `
+@keyframes floatSkill{
+    0%,100%{
+        transform:translateY(0px);
     }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+`;
 
-    window.addEventListener("scroll", highlightActiveNavigation);
-    highlightActiveNavigation(); // Run initialization frame once on load check
+document.head.appendChild(style);
+
+/* ==========================================
+   SMOOTH ANCHOR SCROLL
+========================================== */
+
+document.querySelectorAll(
+'a[href^="#"]'
+).forEach(anchor=>{
+
+    anchor.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+
+        const target =
+        document.querySelector(
+        this.getAttribute("href")
+        );
+
+        if(target){
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+        }
+    });
+});
+
+/* ==========================================
+   FADE-IN ON PAGE LOAD
+========================================== */
+
+window.addEventListener("load",()=>{
+
+    document.body.style.opacity = "1";
+});
+
+/* ==========================================
+   STAGGER PROJECT ENTRANCE
+========================================== */
+
+cards.forEach((card,index)=>{
+
+    card.style.opacity = "0";
+    card.style.transform =
+    "translateY(50px)";
+
+    setTimeout(()=>{
+
+        card.style.transition =
+        "all .8s ease";
+
+        card.style.opacity = "1";
+        card.style.transform =
+        "translateY(0)";
+
+    },300 + index * 150);
+});
+
+/* ==========================================
+   CONTACT CARD HOVER GLOW
+========================================== */
+
+const contacts =
+document.querySelectorAll(
+".contact-card-link"
+);
+
+contacts.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.boxShadow =
+        "0 0 35px rgba(56,189,248,.25)";
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.boxShadow = "none";
+    });
 });
