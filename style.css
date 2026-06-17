@@ -1714,3 +1714,14 @@ opacity:0;
     opacity:1 !important;
     visibility:visible !important;
 }
+.hero-section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:160px 10% 80px;
+}
+
+.hero-title{
+    margin-top:20px;
+    line-height:1.1;
+}
