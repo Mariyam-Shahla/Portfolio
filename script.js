@@ -360,7 +360,7 @@ buttons.forEach(button => {
 
 });
 /* ==========================================
-   PREMIUM PROJECT CARDS (FIXED)
+   PREMIUM PROJECT CARDS
 ========================================== */
 
 const cards = document.querySelectorAll(".project-card-wrapper");
@@ -369,24 +369,12 @@ cards.forEach(card => {
 
     card.addEventListener("mousemove", (e) => {
 
+        if (e.target.closest(".project-link")) return;
+
         const rect = card.getBoundingClientRect();
 
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
-        // Stop animation near the bottom where the repository link is
-        if (y > rect.height - 100) {
-
-            card.style.transform = `
-                perspective(1400px)
-                rotateX(0deg)
-                rotateY(0deg)
-                translateY(-12px)
-                scale(1.02)
-            `;
-
-            return;
-        }
 
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
@@ -401,6 +389,7 @@ cards.forEach(card => {
             translateY(-12px)
             scale(1.02)
         `;
+
     });
 
     card.addEventListener("mouseleave", () => {
@@ -412,10 +401,10 @@ cards.forEach(card => {
             translateY(0)
             scale(1)
         `;
+
     });
 
 });
-
 
 /* ==========================================
    PARALLAX HERO
