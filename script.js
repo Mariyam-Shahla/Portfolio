@@ -359,71 +359,63 @@ buttons.forEach(button => {
     });
 
 });
-
 /* ==========================================
-   PREMIUM 3D PROJECT CARDS
+   PREMIUM PROJECT CARDS (FIXED)
 ========================================== */
 
-const cards =
-document.querySelectorAll(
-".project-card-wrapper"
-);
+const cards = document.querySelectorAll(".project-card-wrapper");
 
-cards.forEach(card=>{
+cards.forEach(card => {
 
-    card.addEventListener(
-    "mousemove",
-    (e)=>{
+    card.addEventListener("mousemove", (e) => {
 
-        const rect =
-        card.getBoundingClientRect();
+        const rect = card.getBoundingClientRect();
 
-        const x =
-        e.clientX - rect.left;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-        const y =
-        e.clientY - rect.top;
+        // Stop animation near the bottom where the repository link is
+        if (y > rect.height - 100) {
 
-        const centerX =
-        rect.width / 2;
+            card.style.transform = `
+                perspective(1400px)
+                rotateX(0deg)
+                rotateY(0deg)
+                translateY(-12px)
+                scale(1.02)
+            `;
 
-        const centerY =
-        rect.height / 2;
+            return;
+        }
 
-        const rotateX =
-        (y - centerY) / 18;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-        const rotateY =
-        (centerX - x) / 18;
+        const rotateX = (y - centerY) / 30;
+        const rotateY = (centerX - x) / 30;
 
-        card.style.transform =
-
-        `
-        perspective(1400px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        translateY(-12px)
-        scale(1.02)
+        card.style.transform = `
+            perspective(1400px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-12px)
+            scale(1.02)
         `;
-
     });
 
-    card.addEventListener(
-    "mouseleave",
-    ()=>{
+    card.addEventListener("mouseleave", () => {
 
-        card.style.transform =
-        `
-        perspective(1400px)
-        rotateX(0deg)
-        rotateY(0deg)
-        translateY(0px)
-        scale(1)
+        card.style.transform = `
+            perspective(1400px)
+            rotateX(0deg)
+            rotateY(0deg)
+            translateY(0)
+            scale(1)
         `;
-
     });
 
 });
+
 
 /* ==========================================
    PARALLAX HERO
