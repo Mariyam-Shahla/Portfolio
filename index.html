@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="photo.css">
 </head>
 <body>
     <div class="progress-bar"></div>
@@ -30,15 +31,12 @@
 
         <div class="hero-text-content">
 
-            <h3 class="hero-subtitle">
-                Seeking Role: Data Analyst
-            </h3>
-
             <h1 class="hero-title">
                 MARIYAM SHAHLA HARIS
             </h1>
 
             <h2 class="hero-typing-container">
+                <span class="seeking-label">Seeking Role:</span>
                 <span id="typing"></span>
             </h2>
 
@@ -60,7 +58,7 @@
                     About Me
                 </a>
 
-                <a href="https://www.linkedin.com/in/mariyam-shahla-2891b8411/"
+                <a href="https://www.linkedin.com/in/mariyam-shahla-data-analyst"
                    target="_blank"
                    class="btn btn-secondary">
                     <i class="fab fa-linkedin"></i>
@@ -71,11 +69,17 @@
 
         </div>
 
+        <div class="hero-photo-wrap">
+            <div class="hero-photo-card" id="heroPhotoCard">
+                <div class="hero-photo-glow"></div>
+                <div class="hero-photo-ring"></div>
+                <img src="profile.png" alt="Mariyam Shahla Haris" class="hero-photo-img">
+            </div>
+        </div>
+
     </div>
 </section>
 
-
-</section>
     <section id="about" class="about-section scroll-reveal">
         <div class="section-header">
             <h2>About Me</h2>
@@ -91,8 +95,10 @@
                 <div class="education-box">
                <p class="edu-degree"><strong>B.Sc Mathematics</strong></p>
                <p class="edu-inst">University of Calicut (2022-2025)</p>
-               <br> <p class="edu-degree"><strong>Diploma in Data Analytics with Python</strong></p>
-              <p class="edu-inst">Ofsys Educations (IBM Certified)</p>
+               <br> <p class="edu-degree"><strong>Diploma in Data Analysis with Python</strong></p>
+              <p class="edu-inst">Ofsys Educations</p>
+               <br> <p class="edu-degree"><strong>IBM Certification in Data Analytics</strong></p>
+              <p class="edu-inst">IBM</p>
               </div>
             </div>
 
@@ -102,7 +108,10 @@
                     I'm a passionate <strong>Data Analyst</strong> based in Kerala, India, with a strong analytical foundation rooted in Mathematics from the University of Calicut. My journey into analytics stems from a deep curiosity about how raw, unstructured datasets can be decoded to tell compelling stories and guide critical business decisions.
                 </p>
                 <p>
-                    To bridge the gap between mathematical theory and enterprise implementation, I earned an <strong>IBM Professional Certification / Diploma in Data Analytics with Python</strong>. This rigorous specialization empowered me with practical, hands-on mastery over data pipelines, database architecture, and advanced analytical workflows.
+                    I came to analytics from teaching, where I learned to break complex ideas into clear, simple explanations. I now apply that same skill to turning data into insights that stakeholders can understand and act on.
+                </p>
+                <p>
+                    To bridge the gap between mathematical theory and practical implementation, I completed a <strong>Diploma in Data Analysis with Python</strong> and earned an <strong>IBM Certification in Data Analytics</strong>. Together they gave me hands-on experience with data cleaning, SQL querying, and analytical workflows.
                 </p>
                 <p>
                     What excites me most about data analytics is the balance of technical problem-solving and visual storytelling. Whether it's optimization of retail performance, identifying trends in hazard risks, or crafting automated dashboards that empower stakeholders—I thrive on transforming data chaos into operational clarity.
@@ -117,7 +126,7 @@
                     <div class="trait-card">
                         <span class="trait-icon">🚀</span>
                         <h4>Continuous Learner</h4>
-                        <p>IBM Certified specialist actively adapting to modern frameworks and intelligence trends.</p>
+                        <p>IBM-certified in Data Analytics and actively adapting to modern tools and analytics trends.</p>
                     </div>
                 </div>
             </div>
@@ -166,7 +175,7 @@
                     </div>
                     <div class="exp-stat-divider"></div>
                     <div class="exp-stat">
-                        <span class="exp-stat-num">6</span>
+                        <span class="exp-stat-num">7</span>
                         <span class="exp-stat-label">Tools &amp; Tech</span>
                     </div>
                 </div>
@@ -177,7 +186,7 @@
                         <div class="exp-project-icon"><i class="fas fa-chart-line"></i></div>
                         <div class="exp-project-content">
                             <h4>Customer Churn Prediction &amp; LTV Engine</h4>
-                            <p>Supported feature engineering and built visualizations that surfaced churn drivers and customer lifetime value segments for stakeholder reporting.</p>
+                            <p>Cleaned and validated 7,043 telecom customer records, supported feature engineering, and built Power BI visuals that surfaced churn drivers and customer lifetime value segments.</p>
                         </div>
                     </div>
 
@@ -185,7 +194,7 @@
                         <div class="exp-project-icon"><i class="fas fa-shield-alt"></i></div>
                         <div class="exp-project-content">
                             <h4>Financial Fraud Detection Pipeline</h4>
-                            <p>Owned the visualization layer, translating model outputs into clear, monitoring-ready dashboards for a production-style fraud detection system.</p>
+                            <p>Built Power BI dashboards on fraud model outputs and contributed to Grafana and Prometheus monitoring.</p>
                         </div>
                     </div>
 
@@ -196,6 +205,7 @@
                         <span>Python</span>
                         <span>Excel</span>
                         <span>Power BI</span>
+                        <span>Grafana</span>
                         <span>FastAPI</span>
                         <span>Prometheus</span>
                         <span>Feature Engineering</span>
@@ -223,11 +233,11 @@
                     <span>Data Visualization</span>
                 </div>
                 <h3>Hazard & Inspection Analysis</h3>
-                <p class="project-summary">Comprehensive risk management dashboard analyzing organizational hazard alerts and structural inspection compliance metrics.</p>
+                <p class="project-summary">Interactive Tableau dashboard tracking workplace safety observations and closure performance across project sites.</p>
                 <ul class="project-bullets">
-                    <li>Designed an executive Tableau dashboard with functional drill-down parameters by risk category and geographic location.</li>
-                    <li>Identified critical hazard trends and recurring failure points using historical timeline decomposition metrics.</li>
-                    <li>Isolated high-risk operational profiles to support safety compliance and asset optimization strategies.</li>
+                    <li>Built an interactive Tableau dashboard on 592 workplace safety observations (Apr 2023 – Aug 2024) by hazard category, project site and week, with KPI cards and filters.</li>
+                    <li>Identified Housekeeping (117) and Slip, Trip and Fall (101) as the largest hazard categories (37% of the 592 observations), with two sites accounting for 46%.</li>
+                    <li>Reported a 98% closure rate (580 closed, 12 open), with the lowest site closure rate at 83%.</li>
                 </ul>
 
                 <a href="Tableau_Dashboard.png" target="_blank" class="project-preview">
@@ -255,9 +265,10 @@
                 <h3>Customer Churn Prediction & LTV Engine</h3>
                 <p class="project-summary">End-to-end ML system that predicts customer churn risk and forecasts lifetime value, deployed as a live API and visualized through an interactive BI dashboard.</p>
                 <ul class="project-bullets">
-                    <li>Built and evaluated Logistic Regression, Decision Tree, and Random Forest models to predict churn, using ROC-AUC and confusion matrix analysis to select the best performer.</li>
-                    <li>Engineered an LTV scoring model and segmented customers into Bronze/Silver/Gold/Platinum tiers to prioritize retention spend on high-value, high-risk accounts.</li>
-                    <li>Deployed the trained model as a REST API with FastAPI supporting single and batch predictions, and built a 4-page Power BI dashboard to surface churn drivers and LTV segments to stakeholders.</li>
+                    <li>Analyzed churn and LTV for 7,043 telecom customers, comparing Logistic Regression, Decision Tree and Random Forest classifiers (Random Forest: 0.84 ROC-AUC, 79% accuracy).</li>
+                    <li>Segmented customers into Bronze, Silver, Gold and Platinum LTV tiers of about 1,760 customers each, with LTV calculated as monthly charges × tenure.</li>
+                    <li>Built a 4-page Power BI dashboard with DAX measures reporting a 26.5% churn rate, 2.86M revenue lost to churn (17.8% of the total) and 1,227 high-value customers lost.</li>
+                    <li>Found churn highest on month-to-month contracts and in early tenure (47% within the first 12 months, against 7% at 61–72 months), and served the LTV model through a FastAPI endpoint.</li>
                 </ul>
 
                 <a href="Churn_LTV_Dashboard.jpg" target="_blank" class="project-preview">
@@ -275,18 +286,66 @@
             </div>
 
             <div class="project-card-wrapper">
+                <div class="project-icon"><i class="fas fa-user-shield"></i></div>
+                <div class="project-tags">
+                    <span>Team Project (3 members)</span>
+                    <span>Power BI</span>
+                    <span>Grafana</span>
+                    <span>Prometheus</span>
+                </div>
+                <h3>Financial Fraud Detection Pipeline</h3>
+                <p class="project-summary">Fraud detection pipeline built by a team of three interns at Zaalima Development. I handled the Power BI reporting on the model outputs and contributed to monitoring.</p>
+                <ul class="project-bullets">
+                    <li><strong>My role:</strong> built Power BI dashboards presenting the outputs of the team's fraud detection model.</li>
+                    <li>Contributed to Grafana and Prometheus monitoring for the pipeline.</li>
+                    <li>Worked in a three-member team during the data analytics internship, alongside teammates who built the model and the rest of the pipeline.</li>
+                </ul>
+            </div>
+
+            <div class="project-card-wrapper">
+                <div class="project-icon"><i class="fas fa-user-shield"></i></div>
+                <div class="project-tags">
+                    <span>Team Project</span>
+                    <span>Power BI</span>
+                    <span>Grafana</span>
+                    <span>Prometheus</span>
+                </div>
+                <h3>Financial Fraud Detection Pipeline</h3>
+                <p class="project-summary">Team project (3 members) built during my data analytics internship at Zaalima Development: a fraud detection pipeline with model outputs, monitoring and reporting. My part was monitoring and visualization.</p>
+                <ul class="project-bullets">
+                    <li><strong>My role:</strong> monitoring and visualization of the fraud detection pipeline.</li>
+                    <li>Contributed to the pipeline's monitoring using Prometheus and Grafana.</li>
+                    <li>Built a 2-page Power BI dashboard (Executive Fraud Overview and Fraud Investigation) presenting the fraud model's outputs.</li>
+                    <li>Dashboard covers 1,048,575 transactions, of which 1,142 were fraud (0.11%), all in CASH_OUT (578) and TRANSFER (564) transactions.</li>
+                </ul>
+
+                <a href="Fraud_Detection_Dashboard.pdf" target="_blank" class="project-preview">
+                    <img src="Fraud_Dashboard.jpg" alt="Financial Fraud Intelligence Dashboard preview" loading="lazy">
+                </a>
+
+                <div class="project-actions">
+                    <a href="Fraud_Detection_Dashboard.pdf" target="_blank" class="project-link btn-dashboard">
+                        <i class="fas fa-file-pdf"></i> View Dashboard (PDF)
+                    </a>
+                    <a href="REPLACE_WITH_TEAM_REPO_URL" target="_blank" class="project-link btn-repo">
+                        <i class="fab fa-github"></i> Team Repository
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card-wrapper">
                 <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
                 <div class="project-tags">
-                    <span>Advanced Excel</span>
-                    <span>Power Pivot</span>
-                    <span>Financial Metrics</span>
+                    <span>Excel</span>
+                    <span>Power Query</span>
+                    <span>XLOOKUP</span>
                 </div>
                 <h3>Retail Sales Analysis</h3>
-                <p class="project-summary">Deep-dive financial and commercial analysis evaluating seasonal trends, retail margins, and operational performance.</p>
+                <p class="project-summary">Excel dashboard analyzing retail revenue, seasonal trends, and customer performance across product categories.</p>
                 <ul class="project-bullets">
-                    <li>Utilized Power Pivot and dynamic Pivot Tables to model and cross-reference messy transactional datasets.</li>
-                    <li>Engineered automated interactive slicers and KPI tracking blocks to visually partition quarterly performance vectors.</li>
-                    <li>Provided margin-optimization data that isolated high-yield products from underperforming operational lines.</li>
+                    <li>Analyzed 16,383 retail transactions (Jan 2023 – Dec 2024, 22.5M revenue) using Pivot Tables, Power Query, VLOOKUP, XLOOKUP and conditional formatting.</li>
+                    <li>Found revenue spread evenly across five product categories (Grocery highest at 20.3%) and a December peak of 2.0M.</li>
+                    <li>Presented the findings with revenue and customer KPI cards in an Excel dashboard.</li>
                 </ul>
 
                 <a href="Excel_Dashboard.jpeg" target="_blank" class="project-preview">
@@ -308,15 +367,15 @@
 </div>
                 <div class="project-tags">
                     <span>Python</span>
-                    <span>Pandas,Matplotlib & Seaborn</span>
+                    <span>Pandas, Matplotlib & Seaborn</span>
                     <span>EDA</span>
                 </div>
                 <h3>Crime Data Analysis</h3>
-                <p class="project-summary">Exploratory Data Analysis (EDA) engine leveraging Python libraries to unmask spatial-temporal crime distributions.</p>
+                <p class="project-summary">Exploratory Data Analysis (EDA) in Python on a large crime dataset, covering cleaning, trends and victim demographics.</p>
                 <ul class="project-bullets">
-                    <li>Developed programmatic data cleaning pipelines in Jupyter Notebooks using Pandas to handle anomalies and missing values.</li>
-                    <li>Generated comprehensive data visualizations via Seaborn and Matplotlib to maps out high-density incident locations.</li>
-                    <li>Uncovered hidden historical correlations linking incident frequencies to distinct temporal windows and regional bounds.</li>
+                    <li>Cleaned a 6,480-record, 50-column crime dataset in Pandas by imputing 2,536 missing numeric values with medians and removing 480 duplicates, leaving 6,000 records.</li>
+                    <li>Explored crime trends by year, state, crime type and victim demographics using Matplotlib and Seaborn.</li>
+                    <li>Found Cyber Crime was the top category (1.23M cases), male victims were about 65% of the total, and 2012 cases were roughly double a typical year.</li>
                 </ul>
                 <a href="https://github.com/Mariyam-Shahla/Crime_Data_Analysis" target="_blank" class="project-link">
                     View Repository <i class="fas fa-arrow-right"></i>
@@ -326,16 +385,15 @@
             <div class="project-card-wrapper">
                 <div class="project-icon"> <i class="fas fa-database"></i></div>
                 <div class="project-tags">
-                    <span>SQL</span>
-                    <span>CTEs & Joins</span>
+                    <span>MySQL</span>
+                    <span>Aggregations & Subqueries</span>
                     <span>Relational DB</span>
                 </div>
                 <h3>Store Sales Analysis</h3>
-                <p class="project-summary">Database analytics platform extracting transactional intelligence, product margins, and customer lifetime trends.</p>
+                <p class="project-summary">MySQL analysis of store orders covering revenue, product performance, and seasonal sales patterns.</p>
                 <ul class="project-bullets">
-                    <li>Structured complex SQL queries leveraging CTEs, window operations, and multi-table inner joins across relational schemas.</li>
-                    <li>Calculated exact product sales velocity ranks and identified high-value buyer cohorts.</li>
-                    <li>Generated optimized summary reporting views to fast-track routine business performance updates.</li>
+                    <li>Analyzed 5,000 store orders (1.37M revenue) with 20 MySQL queries using aggregations, GROUP BY, CASE WHEN segmentation and subqueries.</li>
+                    <li>Found that Electronics generates 80% of revenue, Laptops are the top-earning product (312K) and Autumn is the strongest season.</li>
                 </ul>
                 <a href="https://github.com/Mariyam-Shahla/Store_Sales_Analysis" target="_blank" class="project-link">
                     View Repository <i class="fas fa-arrow-right"></i>
@@ -366,7 +424,7 @@
                 <ul class="skill-list">
                     <li><i class="fas fa-chart-bar text-yellow"></i> Power BI (DAX, Modeling)</li>
                     <li><i class="fas fa-chart-pie text-orange"></i> Tableau Desktop</li>
-                    <li><i class="file-excel text-darkgreen"></i> Excel (Power Pivot, Formulas)</li>
+                    <li><i class="fas fa-file-excel text-darkgreen"></i> Excel (Power Query, Pivot Tables, XLOOKUP)</li>
                 </ul>
             </div>
 
@@ -384,14 +442,14 @@
     <section id="contact" class="contact-section scroll-reveal">
         <div class="section-header">
             <h2>Let's Connect</h2>
-            <p class="section-subtitle">Seeking opportunities in Data Analytics. Open to roles that leverage data to drive business decisions.</p>
+            <p class="section-subtitle">Seeking opportunities as a Data Analyst, Power BI Developer, MIS Executive or Business Analyst. Open to roles that leverage data to drive business decisions.</p>
         </div>
 
         <div class="contact-methods-container">
             <a href="mailto:mariyamshahla04@gmail.com" class="contact-card-link">
                 <i class="fas fa-envelope"></i> mariyamshahla04@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/mariyam-shahla-2891b8411/" target="_blank" class="contact-card-link">
+            <a href="https://www.linkedin.com/in/mariyam-shahla-data-analyst" target="_blank" class="contact-card-link">
                 <i class="fab fa-linkedin"></i> LinkedIn Profile
             </a>
             <a href="https://github.com/Mariyam-Shahla" target="_blank" class="contact-card-link">

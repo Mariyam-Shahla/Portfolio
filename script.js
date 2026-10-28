@@ -202,9 +202,8 @@ const roles = [
 
 "Data Analyst",
 "Power BI Developer",
-"SQL Specialist",
-"Python Analyst",
-"Dashboard Designer"
+"MIS Executive",
+"Business Analyst"
 
 ];
 
@@ -549,3 +548,39 @@ dashboardPreviews.forEach(preview => {
     });
 
 });
+/* ==========================================
+   3D HERO PROFILE PHOTO TILT
+========================================== */
+
+const photoCard = document.getElementById("heroPhotoCard");
+
+if (photoCard) {
+
+    const photoWrap = photoCard.parentElement;
+
+    photoWrap.addEventListener("mousemove", (e) => {
+
+        const rect = photoCard.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x - rect.width / 2) / rect.width) * 18;
+        const rotateX = -((y - rect.height / 2) / rect.height) * 18;
+
+        photoCard.classList.add("is-tilting");
+
+        photoCard.style.transform =
+            `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    });
+
+    photoWrap.addEventListener("mouseleave", () => {
+
+        photoCard.classList.remove("is-tilting");
+
+        photoCard.style.transform = "";
+
+    });
+
+}
